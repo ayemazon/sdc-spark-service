@@ -9354,7 +9354,7 @@ const fakeProductData = [
 ];
 
 const insertProductQnAs = () => {
-  mongo.questions
+  mongo.QAndAModel
     .create(fakeProductData)
     .then(() => mongo.db.close())
     .catch(err => console.log(err));
