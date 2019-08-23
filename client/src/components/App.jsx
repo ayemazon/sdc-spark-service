@@ -24,23 +24,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // let id = window.location.pathname;
-    // with proxy = .get(`http://localhost:3000/questions/product/${window.location.href.split('/')[4] || 1}`)
-    // without proxy = .get(`/questions/product/${window.location.href.split('/')[4] || 1}`)
-  
-    // with AWS = .get(`http://ec2-18-220-91-195.us-east-2.compute.amazonaws.com:80/questions/product/${window.location.href.split('/')[4] || 1}`)
+    console.log('got here')
     let id = window.location.href.split('/')[4] || 1
-    if (id !== "/") {
-      axios
-        .get(`http://ec2-18-220-91-195.us-east-2.compute.amazonaws.com:80/questions/product/${window.location.href.split('/')[4] || 1}`)
-        .then(response => {
-          // console.log(response, `this is is going well`)
-          this.setState({ product: response.data });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
+    axios
+      .get(`/`)
+      .then(response => {
+        console.log(response, `this is is going well`)
+        this.setState({ product: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   changeVote(event) {
@@ -73,10 +67,10 @@ class App extends React.Component {
 
         // Change State Based on Votes
         const {product, _id, __v}= this.state.product;
-        
+
         const updProduct ={};
         updProduct.product = product;
-        updProduct._id = _id; 
+        updProduct._id = _id;
         updProduct.__v = __v;
         updProduct.questions = questions;
 
