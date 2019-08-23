@@ -1,4 +1,4 @@
-const mongo = require("../schema");
+const Questions = require('../schema')
 require('dotenv').config()
 const fakeProductData = [
   {
@@ -9354,7 +9354,7 @@ const fakeProductData = [
 ];
 
 const insertProductQnAs = () => {
-  mongo.QAndAModel
+  Questions
     .create(fakeProductData)
     .then(() => mongo.db.close())
     .catch(err => console.log(err));

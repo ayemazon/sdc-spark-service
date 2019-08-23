@@ -31,4 +31,4 @@ const questionNAnswersSchema = new mongoose.Schema({
 });
 
 // to use schema, it must be converted to a Model
-module.exports = mongoose.model("Questions", questionNAnswersSchema);
+module.exports = mongoose.model("QuestionsTenMil", questionNAnswersSchema);
